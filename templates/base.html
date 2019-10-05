@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta name='description' content="内容" http-equiv="refresh" charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ blog_obj.title }}的个人博客</title>
+    <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/mystyle.css">
+    <link rel="stylesheet" href="/static/theme/{{ blog_obj.theme }}">
+    <script src="/static/jquery-3.2.1.min.js"></script>
+    <script src="/static/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/static/setupajax.js"></script>
+</head>
+<body>
+
+<div class="header">
+    <p>{{ blog_obj.title }}</p>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            {% load my_tags %}
+
+            {% get_left_menu username %}
+        </div>
+
+        <div class="col-md-8">
+            <!-- 文章列表开始-->
+            {% block page-main %}
+
+            {% endblock %}
+            <!-- 文章列表结束-->
+        </div>
+    </div>
+</div>
+
+
+
+</body>
+</html>
